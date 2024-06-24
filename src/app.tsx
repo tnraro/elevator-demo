@@ -48,7 +48,7 @@ function App() {
           </ElevatorShaft>
         ))}
       </div>
-      <div>
+      <div className={styles["button-container"]}>
         <span>
           호출
         </span>

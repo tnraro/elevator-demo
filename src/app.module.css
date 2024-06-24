@@ -2,3 +2,9 @@
   display: grid;
   grid-template-columns: max-content 1fr;
 }
+
+.button-container {
+  display: grid;
+  grid-template-columns: repeat(5, max-content);
+  place-content: center;
+}
