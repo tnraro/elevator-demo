@@ -1,0 +1,35 @@
+.floor-button {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 0.75rem;
+  border: none;
+  background: var(--bg, hsl(240deg 10% 95%));
+  color: var(--text, hsl(240deg 10% 5%));
+  font-size: 2rem;
+  font-weight: 700;
+
+  transition:
+    box-shadow 0.5s ease-in-out,
+    background 0.1s ease-in-out,
+    color 0.1s ease-in-out;
+
+  &:hover {
+    --bg: hsl(240deg 10% 90%);
+  }
+
+  &:active {
+    --bg: hsl(240deg 10% 80%);
+    --text: hsl(200deg 60% 50% / 0.25);
+  }
+
+  &:disabled {
+    --bg: hsl(240deg 0% 95%);
+    --text: hsl(200deg 0% 30% / 0.25);
+  }
+}
+
+.floor-button--activated.floor-button--activated {
+  --text: hsl(10deg 100% 10% / 0.25);
+  --bg: hsl(10deg 60% 60% / 0.25);
+  box-shadow: 1px 1px 16px hsl(10deg 60% 50% / 0.25);
+}

@@ -1,8 +1,8 @@
 import { useState } from "react";
-import "./app.css";
 import { Elevator } from "./features/elevator";
 import { ElevatorShaft } from "./features/elevator-shaft";
 import { FloorButton } from "./features/floor-button";
+import styles from "./app.module.css";
 
 interface Elevator {
   id: number;
@@ -33,18 +33,8 @@ function App() {
   const buttons = useButtons();
 
   return (
-    <>
-      <div>
-        <span>
-          호출
-        </span>
-        {buttons.map(button => (
-          <FloorButton key={button.id} {...button} onClick={(floor) => {
-            callElevator(floor);
-          }} />
-        ))}
-      </div>
-      <div className="elevator-container">
+    <div className={styles.container}>
+      <div className={styles["elevator-container"]}>
         {elevators.map((elevator) => (
           <ElevatorShaft
             key={elevator.id}
@@ -57,7 +47,14 @@ function App() {
           </ElevatorShaft>
         ))}
       </div>
-    </>
+      <div className={styles["button-container"]}>
+        {buttons.map(button => (
+          <FloorButton key={button.id} {...button} onClick={(floor) => {
+            callElevator(floor);
+          }} />
+        ))}
+      </div>
+    </div>
   )
 
   function callElevator(floor: number) {

@@ -1,0 +1,8 @@
+.elevator-shaft {
+  position: relative;
+  width: 4rem;
+  height: calc(var(--height) * 3rem + 2px);
+  border-radius: 0.5rem;
+  background: hsl(240deg 3% 80%);
+  overflow: hidden;
+}

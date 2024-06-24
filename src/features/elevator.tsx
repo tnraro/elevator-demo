@@ -1,3 +1,5 @@
+import styles from "./elevator.module.css"
+
 interface Props {
   id: number;
   currentFloor: number;
@@ -11,8 +13,8 @@ export function Elevator(props: Props) {
   return (
     <div
       className={[
-        "elevator",
-        isMoving && "elevator--moving",
+        styles["elevator"],
+        isMoving && styles["elevator--moving"],
       ].filter(x => x).join(" ")}
       style={{ "--current-floor": props.currentFloor }}
       onTransitionEnd={() => props.onMove(props.id)}
