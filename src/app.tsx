@@ -27,18 +27,8 @@ function App() {
     targetFloor: 1,
     moves: 0,
   }]);
-  const buttons = Array.from({ length: height }, (_, i) => {
-    return {
-      id: i,
-      floor: i + 1,
-      isActivated: isActivated(),
-    }
 
-    function isActivated() {
-      return elevators.find(elevator => i + 1 === elevator.targetFloor &&
-        elevator.currentFloor !== elevator.targetFloor) != null
-    }
-  });
+  const buttons = useButtons();
 
   return (
     <>
@@ -98,6 +88,22 @@ function App() {
       }
     }));
   }
+
+  function useButtons() {
+    return Array.from({ length: height }, (_, i) => {
+      return {
+        id: i,
+        floor: i + 1,
+        isActivated: isActivated(),
+      }
+
+      function isActivated() {
+        return elevators.find(elevator => i + 1 === elevator.targetFloor &&
+          elevator.currentFloor !== elevator.targetFloor) != null
+      }
+    });
+  }
 }
+
 
 export default App;
