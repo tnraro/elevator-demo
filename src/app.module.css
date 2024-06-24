@@ -9,4 +9,5 @@
   place-content: center;
   gap: 1rem;
   padding: 4rem;
+  max-width: 36rem;
 }
