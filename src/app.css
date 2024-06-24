@@ -27,3 +27,7 @@
   color: red;
   border-color: red;
 }
+
+.floor-button--activated {
+  color: red;
+}

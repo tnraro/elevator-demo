@@ -29,7 +29,13 @@ function App() {
   const buttons = Array.from({ length: height }, (_, i) => {
     return {
       id: i,
-      floor: i + 1
+      floor: i + 1,
+      isActivated: isActivated(),
+    }
+
+    function isActivated() {
+      return elevators.find(elevator => i + 1 === elevator.targetFloor &&
+        elevator.currentFloor !== elevator.targetFloor) != null
     }
   });
 
@@ -41,6 +47,10 @@ function App() {
         </span>
         {buttons.map(button => (
           <button
+            className={[
+              "floor-button",
+              button.isActivated && "floor-button--activated",
+            ].filter(x => x).join(" ")}
             key={button.id}
             onClick={() => {
               callElevator(button.floor);
