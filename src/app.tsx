@@ -3,6 +3,7 @@ import "./app.css";
 import { Elevator } from "./features/elevator";
 import { ElevatorShaft } from "./features/elevator-shaft";
 import { FloorButton } from "./features/floor-button";
+import styles from "./app.module.css";
 
 interface Elevator {
   id: number;
@@ -33,17 +34,7 @@ function App() {
   const buttons = useButtons();
 
   return (
-    <>
-      <div>
-        <span>
-          호출
-        </span>
-        {buttons.map(button => (
-          <FloorButton key={button.id} {...button} onClick={(floor) => {
-            callElevator(floor);
-          }} />
-        ))}
-      </div>
+    <div className={styles.container}>
       <div className="elevator-container">
         {elevators.map((elevator) => (
           <ElevatorShaft
@@ -57,7 +48,17 @@ function App() {
           </ElevatorShaft>
         ))}
       </div>
-    </>
+      <div>
+        <span>
+          호출
+        </span>
+        {buttons.map(button => (
+          <FloorButton key={button.id} {...button} onClick={(floor) => {
+            callElevator(floor);
+          }} />
+        ))}
+      </div>
+    </div>
   )
 
   function callElevator(floor: number) {
