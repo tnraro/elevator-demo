@@ -12,6 +12,7 @@ export function FloorButton(props: Props) {
         "floor-button",
         props.isActivated && "floor-button--activated",
       ].filter(x => x).join(" ")}
+      disabled={props.isActivated}
       key={props.id}
       onClick={() => props.onClick(props.floor)}
     >{props.floor}</button>
