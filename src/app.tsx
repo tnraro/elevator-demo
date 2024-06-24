@@ -13,22 +13,7 @@ interface Elevator {
 
 function App() {
   const [height] = useState(15);
-  const [elevators, setElevators] = useState<Elevator[]>([{
-    id: 0,
-    currentFloor: 1,
-    targetFloor: 1,
-    moves: 0,
-  }, {
-    id: 1,
-    currentFloor: 1,
-    targetFloor: 1,
-    moves: 0,
-  }, {
-    id: 2,
-    currentFloor: 1,
-    targetFloor: 1,
-    moves: 0,
-  }]);
+  const [elevators, setElevators] = useElevators(3);
 
   const buttons = useButtons();
 
@@ -98,6 +83,17 @@ function App() {
           elevator.currentFloor !== elevator.targetFloor) != null
       }
     });
+  }
+
+  function useElevators(n: number) {
+    return useState<Elevator[]>(
+      Array.from({ length: n }, (_, id) => ({
+        id,
+        currentFloor: 1,
+        targetFloor: 1,
+        moves: 0,
+      }))
+    );
   }
 }
 
