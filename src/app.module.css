@@ -5,6 +5,7 @@
 
 .button-container {
   display: grid;
-  grid-template-columns: repeat(5, max-content);
+  grid-template-columns: repeat(auto-fill, 4rem);
   place-content: center;
+  gap: 1rem;
 }
