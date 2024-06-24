@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./app.css";
 
 interface Elevator {
@@ -9,7 +9,7 @@ interface Elevator {
 }
 
 function App() {
-  const [height, setHeight] = useState(15);
+  const [height] = useState(15);
   const [elevators, setElevators] = useState<Elevator[]>([{
     id: 0,
     currentFloor: 1,
