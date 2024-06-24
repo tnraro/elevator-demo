@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./app.css";
 import { FloorButton } from "./features/floor-button";
 import { Elevator } from "./features/elevator";
+import { ElevatorShaft } from "./features/elevator-shaft";
 
 interface Elevator {
   id: number;
@@ -45,11 +46,15 @@ function App() {
       </div>
       <div className="elevator-container">
         {elevators.map((elevator) => (
-          <div key={elevator.id} className="elevator-shaft" style={{ "--height": height }}>
+          <ElevatorShaft
+            key={elevator.id}
+            id={elevator.id}
+            height={height}
+          >
             <Elevator {...elevator} onMove={(id) => {
               moveElevator(id);
             }} />
-          </div>
+          </ElevatorShaft>
         ))}
       </div>
     </>
