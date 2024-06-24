@@ -49,9 +49,6 @@ function App() {
         ))}
       </div>
       <div className={styles["button-container"]}>
-        <span>
-          호출
-        </span>
         {buttons.map(button => (
           <FloorButton key={button.id} {...button} onClick={(floor) => {
             callElevator(floor);
