@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "./app.css";
-import { FloorButton } from "./features/floor-button";
 import { Elevator } from "./features/elevator";
 import { ElevatorShaft } from "./features/elevator-shaft";
+import { FloorButton } from "./features/floor-button";
 
 interface Elevator {
   id: number;
