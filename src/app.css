@@ -22,3 +22,8 @@
   place-items: center;
   transition: bottom 0.2s;
 }
+
+.elevator--moving {
+  color: red;
+  border-color: red;
+}
