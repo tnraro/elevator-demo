@@ -1,3 +1,5 @@
+import styles from "./floor-button.module.css";
+
 interface Props {
   id: number;
   floor: number;
@@ -9,8 +11,8 @@ export function FloorButton(props: Props) {
   return (
     <button
       className={[
-        "floor-button",
-        props.isActivated && "floor-button--activated",
+        styles["floor-button"],
+        props.isActivated && styles["floor-button--activated"],
       ].filter(x => x).join(" ")}
       disabled={props.isActivated}
       key={props.id}
