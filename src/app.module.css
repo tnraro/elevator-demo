@@ -11,3 +11,9 @@
   padding: 4rem;
   max-width: 36rem;
 }
+
+.elevator-container {
+  display: flex;
+  gap: 2rem;
+  background: hsl(240deg 0% 95%);
+}

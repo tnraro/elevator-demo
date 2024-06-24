@@ -35,7 +35,7 @@ function App() {
 
   return (
     <div className={styles.container}>
-      <div className="elevator-container">
+      <div className={styles["elevator-container"]}>
         {elevators.map((elevator) => (
           <ElevatorShaft
             key={elevator.id}
