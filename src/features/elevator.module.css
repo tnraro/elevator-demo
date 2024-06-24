@@ -2,7 +2,8 @@
   position: absolute;
   bottom: calc((var(--current-floor) - 1) * 3rem);
   left: 1px;
-  border: 2px solid black;
+  background: white;
+  border-radius: calc(0.5rem - 2px);
   width: calc(100% - 2px);
   height: calc(3rem - 2px);
 
