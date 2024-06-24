@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./app.css";
+import { FloorButton } from "./features/floor-button";
 
 interface Elevator {
   id: number;
@@ -46,15 +47,9 @@ function App() {
           호출
         </span>
         {buttons.map(button => (
-          <button
-            className={[
-              "floor-button",
-              button.isActivated && "floor-button--activated",
-            ].filter(x => x).join(" ")}
-            key={button.id}
-            onClick={() => {
-              callElevator(button.floor);
-            }}>{button.floor}</button>
+          <FloorButton key={button.id} {...button} onClick={(floor) => {
+            callElevator(floor);
+          }} />
         ))}
       </div>
       <div className="elevator-container">
