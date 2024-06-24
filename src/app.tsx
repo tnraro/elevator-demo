@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./app.css";
 import { FloorButton } from "./features/floor-button";
+import { Elevator } from "./features/elevator";
 
 interface Elevator {
   id: number;
@@ -43,18 +44,11 @@ function App() {
         ))}
       </div>
       <div className="elevator-container">
-        {elevators.map(({ id, currentFloor, targetFloor }) => (
-          <div key={id} className="elevator-shaft" style={{ "--height": height }}>
-            <div
-              className={[
-                "elevator",
-                currentFloor !== targetFloor && "elevator--moving",
-              ].filter(x => x).join(" ")}
-              style={{ "--current-floor": currentFloor }}
-              onTransitionEnd={() => {
-                moveElevator(id);
-              }}
-            >{currentFloor}</div>
+        {elevators.map((elevator) => (
+          <div key={elevator.id} className="elevator-shaft" style={{ "--height": height }}>
+            <Elevator {...elevator} onMove={(id) => {
+              moveElevator(id);
+            }} />
           </div>
         ))}
       </div>
