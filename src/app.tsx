@@ -27,7 +27,7 @@ function App() {
             id={elevator.id}
             height={height}
           >
-            <Elevator {...elevator} onMove={(id) => {
+            <Elevator {...elevator} height={height} onMove={(id) => {
               moveElevator(id);
             }} />
           </ElevatorShaft>

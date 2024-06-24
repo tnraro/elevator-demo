@@ -1,6 +1,6 @@
 .elevator {
   position: absolute;
-  bottom: calc((var(--current-floor) - 1) * 3rem + 2px);
+  bottom: calc(var(--rate, 0) * (100% - 3rem - 2px) + 2px);
   left: 3px;
   background: white;
   border-radius: calc(0.5rem - 2px);

@@ -6,6 +6,7 @@ interface Props {
   targetFloor: number;
   moves: number;
   isMoving: boolean;
+  height: number;
   onMove: (id: number) => void;
 }
 
@@ -16,7 +17,7 @@ export function Elevator(props: Props) {
         styles["elevator"],
         props.isMoving && styles["elevator--moving"],
       ].filter(x => x).join(" ")}
-      style={{ "--current-floor": props.currentFloor }}
+      style={{ "--rate": (props.currentFloor - 1) / (props.height - 1) }}
       onTransitionEnd={() => props.onMove(props.id)}
     >{props.currentFloor}</div>
   )
