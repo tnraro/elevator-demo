@@ -52,6 +52,7 @@ function App() {
     function findIdleElevator() {
       return elevators
         .filter(elevator => elevator.currentFloor === elevator.targetFloor)
+        .filter(elevator => elevator.targetFloor !== floor)
         .sort((a, b) => a.moves - b.moves)
         .at(0);
     }
