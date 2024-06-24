@@ -74,11 +74,14 @@ function App() {
   }
 
   function useButtons() {
+    const areAllElevatorsMoving = elevators.every(elevator => elevator.isMoving);
+
     return Array.from({ length: height }, (_, i) => {
       return {
         id: i,
         floor: i + 1,
         isActivated: isActivated(),
+        isDisabled: areAllElevatorsMoving,
       }
 
       function isActivated() {

@@ -4,6 +4,7 @@ interface Props {
   id: number;
   floor: number;
   isActivated: boolean;
+  isDisabled: boolean;
   onClick: (floor: number) => void;
 }
 
@@ -14,7 +15,7 @@ export function FloorButton(props: Props) {
         styles["floor-button"],
         props.isActivated && styles["floor-button--activated"],
       ].filter(x => x).join(" ")}
-      disabled={props.isActivated}
+      disabled={props.isActivated || props.isDisabled}
       key={props.id}
       onClick={() => props.onClick(props.floor)}
     >{props.floor}</button>
