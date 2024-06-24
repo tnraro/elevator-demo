@@ -9,6 +9,7 @@ interface Elevator {
   currentFloor: number;
   targetFloor: number;
   moves: number;
+  isMoving: boolean;
 }
 
 function App() {
@@ -66,6 +67,7 @@ function App() {
         currentFloor: e.currentFloor + direction,
         targetFloor: target,
         moves: e.moves + Math.abs(target - e.currentFloor),
+        isMoving: direction !== 0,
       }
     }));
   }
@@ -80,7 +82,7 @@ function App() {
 
       function isActivated() {
         return elevators.find(elevator => i + 1 === elevator.targetFloor &&
-          elevator.currentFloor !== elevator.targetFloor) != null
+          elevator.isMoving) != null
       }
     });
   }
@@ -92,6 +94,7 @@ function App() {
         currentFloor: 1,
         targetFloor: 1,
         moves: 0,
+        isMoving: false,
       }))
     );
   }

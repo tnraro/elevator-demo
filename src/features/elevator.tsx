@@ -5,16 +5,16 @@ interface Props {
   currentFloor: number;
   targetFloor: number;
   moves: number;
+  isMoving: boolean;
   onMove: (id: number) => void;
 }
 
 export function Elevator(props: Props) {
-  const isMoving = props.currentFloor !== props.targetFloor;
   return (
     <div
       className={[
         styles["elevator"],
-        isMoving && styles["elevator--moving"],
+        props.isMoving && styles["elevator--moving"],
       ].filter(x => x).join(" ")}
       style={{ "--current-floor": props.currentFloor }}
       onTransitionEnd={() => props.onMove(props.id)}
