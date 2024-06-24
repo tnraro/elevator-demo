@@ -26,7 +26,12 @@ function App() {
     targetFloor: 1,
     moves: 0,
   }]);
-  const buttons = Array.from({ length: height }, (_, i) => i + 1);
+  const buttons = Array.from({ length: height }, (_, i) => {
+    return {
+      id: i,
+      floor: i + 1
+    }
+  });
 
   return (
     <>
@@ -36,10 +41,10 @@ function App() {
         </span>
         {buttons.map(button => (
           <button
-            key={button}
+            key={button.id}
             onClick={() => {
-              callElevator(button);
-            }}>{button}</button>
+              callElevator(button.floor);
+            }}>{button.floor}</button>
         ))}
       </div>
       <div className="elevator-container">
