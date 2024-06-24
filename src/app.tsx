@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./app.css";
+import { FloorButton } from "./features/floor-button";
 
 interface Elevator {
   id: number;
@@ -26,7 +27,8 @@ function App() {
     targetFloor: 1,
     moves: 0,
   }]);
-  const buttons = Array.from({ length: height }, (_, i) => i + 1);
+
+  const buttons = useButtons();
 
   return (
     <>
@@ -35,11 +37,9 @@ function App() {
           호출
         </span>
         {buttons.map(button => (
-          <button
-            key={button}
-            onClick={() => {
-              callElevator(button);
-            }}>{button}</button>
+          <FloorButton key={button.id} {...button} onClick={(floor) => {
+            callElevator(floor);
+          }} />
         ))}
       </div>
       <div className="elevator-container">
@@ -88,6 +88,22 @@ function App() {
       }
     }));
   }
+
+  function useButtons() {
+    return Array.from({ length: height }, (_, i) => {
+      return {
+        id: i,
+        floor: i + 1,
+        isActivated: isActivated(),
+      }
+
+      function isActivated() {
+        return elevators.find(elevator => i + 1 === elevator.targetFloor &&
+          elevator.currentFloor !== elevator.targetFloor) != null
+      }
+    });
+  }
 }
+
 
 export default App;
