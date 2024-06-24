@@ -9,7 +9,7 @@
 
   display: grid;
   place-items: center;
-  transition: bottom 0.2s;
+  transition: bottom 0.2s linear;
 }
 
 .elevator--moving {
