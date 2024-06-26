@@ -16,7 +16,7 @@ function App() {
   const [height] = useState(15);
   const [elevators, setElevators] = useElevators(3);
 
-  const buttons = useButtons();
+  const buttons = getButtons();
 
   return (
     <div className={styles.container}>
@@ -73,7 +73,7 @@ function App() {
     }));
   }
 
-  function useButtons() {
+  function getButtons() {
     const areAllElevatorsMoving = elevators.every(elevator => elevator.isMoving);
 
     return Array.from({ length: height }, (_, i) => {
