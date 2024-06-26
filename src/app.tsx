@@ -90,18 +90,18 @@ function App() {
       }
     });
   }
+}
 
-  function useElevators(n: number) {
-    return useState<Elevator[]>(
-      Array.from({ length: n }, (_, id) => ({
-        id,
-        currentFloor: 1,
-        targetFloor: 1,
-        moves: 0,
-        isMoving: false,
-      }))
-    );
-  }
+function useElevators(n: number) {
+  return useState<Elevator[]>(
+    Array.from({ length: n }, (_, id) => ({
+      id,
+      currentFloor: 1,
+      targetFloor: 1,
+      moves: 0,
+      isMoving: false,
+    }))
+  );
 }
 
 
