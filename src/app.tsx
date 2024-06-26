@@ -67,7 +67,7 @@ function App() {
         ...e,
         currentFloor: e.currentFloor + direction,
         targetFloor: target,
-        moves: e.moves + Math.abs(target - e.currentFloor),
+        moves: e.moves + Math.abs(direction),
         isMoving: direction !== 0,
       }
     }));
