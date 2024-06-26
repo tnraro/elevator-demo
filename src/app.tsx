@@ -16,7 +16,7 @@ function App() {
   const [height] = useState(15);
   const [elevators, setElevators] = useElevators(3);
 
-  const buttons = useButtons();
+  const buttons = getButtons();
 
   return (
     <div className={styles.container}>
@@ -67,13 +67,13 @@ function App() {
         ...e,
         currentFloor: e.currentFloor + direction,
         targetFloor: target,
-        moves: e.moves + Math.abs(target - e.currentFloor),
+        moves: e.moves + Math.abs(direction),
         isMoving: direction !== 0,
       }
     }));
   }
 
-  function useButtons() {
+  function getButtons() {
     const areAllElevatorsMoving = elevators.every(elevator => elevator.isMoving);
 
     return Array.from({ length: height }, (_, i) => {
@@ -90,18 +90,18 @@ function App() {
       }
     });
   }
+}
 
-  function useElevators(n: number) {
-    return useState<Elevator[]>(
-      Array.from({ length: n }, (_, id) => ({
-        id,
-        currentFloor: 1,
-        targetFloor: 1,
-        moves: 0,
-        isMoving: false,
-      }))
-    );
-  }
+function useElevators(n: number) {
+  return useState<Elevator[]>(
+    Array.from({ length: n }, (_, id) => ({
+      id,
+      currentFloor: 1,
+      targetFloor: 1,
+      moves: 0,
+      isMoving: false,
+    }))
+  );
 }
 
 
